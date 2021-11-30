@@ -1,20 +1,19 @@
 #include "PhoneBook.hpp"
 #include "Utils.hpp"
 
-PhoneBook::PhoneBook() : number_of_contact(1)
+PhoneBook::PhoneBook() : number_of_contacts(0)
 {
-	
 }
 
 void		PhoneBook::add_contact()
 {
-	if (number_of_contact == 8)
+	if (number_of_contacts == 8)
 	{
 		std::cout << "Your phonebook is full" << std::endl;
 		return;
 	}
 	
-	Contact* contact = &contacts[number_of_contact];
+	Contact* contact = &contacts[number_of_contacts];
 
 	contact->set_first_name(ask_field("First name", true, false));
 	contact->set_last_name(ask_field("Last name", true, false));
@@ -22,12 +21,12 @@ void		PhoneBook::add_contact()
 	contact->set_phone_number(ask_field("Phone number", false, true, 10));
 	contact->set_darkest_secret(ask_field("Darkest secret", true, true));
 	
-	number_of_contact++;
+	number_of_contacts++;
 }
 
 void		PhoneBook::search()
 {
-	if (number_of_contact <= 0)
+	if (number_of_contacts <= 0)
 	{
 		std::cout << "You don't have any contact in your phonebook" << std::endl;
 		return;
@@ -44,17 +43,17 @@ void		PhoneBook::search()
 				return;
 			
 			contact_index = std::atoi(line.c_str());
-			if (contact_index < 0 || contact_index >= number_of_contact)
+			if (contact_index < 0 || contact_index >= number_of_contacts)
 			{
 				std::cout << "Wrong contact index" << std::endl;
 				continue;
 			}
 			contacts[contact_index].display();
-		} while (contact_index < 0 || contact_index > number_of_contact - 1);
+		} while (contact_index < 0 || contact_index > number_of_contacts - 1);
 	}
 }
 
-void		PhoneBook::display_contact_info(std::string info)
+void		PhoneBook::display_contact_infos(std::string info)
 {
 	std::cout << " " << std::setw(10);
 	if (info.size() > 10)
@@ -69,7 +68,7 @@ void		PhoneBook::display()
 	std::cout << "|---------------------------------------------------|" << std::endl;
 	std::cout << "|      Index | First Name |  Last Name |   Nickname |" << std::endl;
 	std::cout << "|---------------------------------------------------|" << std::endl;
-	for (int i = 0; i < this->number_of_contact; i++)
+	for (int i = 0; i < this->number_of_contacts; i++)
 	{
 		Contact contact = contacts[i];
 
@@ -78,9 +77,9 @@ void		PhoneBook::display()
 		std::cout << " " << std::setw(10);
 		std::cout << i << " |";
 
-		display_contact_info(contact.get_first_name());
-		display_contact_info(contact.get_last_name());
-		display_contact_info(contact.get_nickname());
+		display_contact_infos(contact.get_first_name());
+		display_contact_infos(contact.get_last_name());
+		display_contact_infos(contact.get_nickname());
 		
 		std::cout << std::endl;
 	}
@@ -91,7 +90,7 @@ Contact*	PhoneBook::get_contacts()
 {
 	return this->contacts;
 }
-int			PhoneBook::get_number_of_contact()
+int			PhoneBook::get_number_of_contacts()
 {
-	return this->number_of_contact;
+	return this->number_of_contacts;
 }
