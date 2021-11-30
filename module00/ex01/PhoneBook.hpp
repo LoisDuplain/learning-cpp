@@ -8,9 +8,9 @@ class PhoneBook
 {
 private:
 	Contact		contacts[8];
-	int 		number_of_contact;
+	int 		number_of_contacts;
 
-	void		display_contact_info(std::string info);
+	void		display_contact_infos(std::string info);
 public:
 	PhoneBook();
 
@@ -19,5 +19,5 @@ public:
 	void		display();
 
 	Contact*	get_contacts();
-	int			get_number_of_contact();
+	int			get_number_of_contacts();
 };

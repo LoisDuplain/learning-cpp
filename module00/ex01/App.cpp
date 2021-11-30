@@ -6,18 +6,6 @@ int	main(void)
 {
 	PhoneBook	phonebook;
 
-	/*
-	DEBUG
-
-	RESET NUMBER OF CONTACT (NOT 1 BUT 0)
-	*/
-
-	phonebook.get_contacts()[0].set_first_name("Lois");
-	phonebook.get_contacts()[0].set_last_name("Duplain");
-	phonebook.get_contacts()[0].set_nickname("lololegrosplot");
-	phonebook.get_contacts()[0].set_phone_number("0768824773");
-	phonebook.get_contacts()[0].set_darkest_secret("Je vois encore mon ex");
-
 	std::string	line;
 	while (true)
 	{
