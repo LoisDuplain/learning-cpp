@@ -6,9 +6,9 @@ int main()
 	std::string	*stringPTR = &str;
 	std::string &stringREF = str;
 
-	std::cout << "Adress in memory of str  = " << &str << std::endl;
-	std::cout << "Adress in memory of stringPTR = " << stringPTR << std::endl;
-	std::cout << "Adress in memory of stringREF = " << &stringREF << std::endl;
+	std::cout << "Adress of str  = " << &str << std::endl;
+	std::cout << "Adress of stringPTR = " << stringPTR << std::endl;
+	std::cout << "Adress of stringREF = " << &stringREF << std::endl;
 
 	std::cout << "\nValues are:" << std::endl;
 	std::cout << "str: " << str << std::endl;
