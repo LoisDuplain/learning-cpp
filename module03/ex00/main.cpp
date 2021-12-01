@@ -4,9 +4,14 @@ int	main(void)
 {
 	ClapTrap	unknown;
 	ClapTrap	bobby("Bobby");
+
 	ClapTrap	timmy("Timmy");
+	timmy.setAttackDamage(50);
 
 	std::cout << unknown << std::endl;
 	std::cout << bobby << std::endl;
 	std::cout << timmy << std::endl;
+
+	bobby.attack(timmy.getName());
+	timmy.attack(bobby.getName());
 }
