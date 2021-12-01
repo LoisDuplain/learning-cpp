@@ -50,7 +50,7 @@ int		Fixed::toInt(void) const
 }
 float	Fixed::toFloat(void) const
 {
-	return (roundf(_rawBits) / (1 << _fractionalBitsNb));
+	return ((float)_rawBits / (1 << _fractionalBitsNb));
 }
 
 void	Fixed::setRawBits(int raw)
@@ -70,19 +70,31 @@ Fixed	&Fixed::operator=(Fixed const &f)
 
 Fixed	Fixed::operator+(Fixed const &f) const
 {
-	return toFloat() + f.toFloat();
+	Fixed	tmp;
+
+	tmp._rawBits = _rawBits + f._rawBits;
+	return tmp;
 }
 Fixed	Fixed::operator-(Fixed const &f) const
 {
-	return toFloat() - f.toFloat();
+	Fixed	tmp;
+
+	tmp._rawBits = _rawBits - f._rawBits;
+	return tmp;
 }
 Fixed	Fixed::operator*(Fixed const &f) const
 {
-	return toFloat() * f.toFloat();
+	Fixed	tmp;
+
+	tmp._rawBits = _rawBits * f._rawBits / (1 << _fractionalBitsNb);
+	return tmp;
 }
 Fixed	Fixed::operator/(Fixed const &f) const
 {
-	return toFloat() / f.toFloat();
+	Fixed	tmp;
+
+	tmp._rawBits = _rawBits / f._rawBits * (1 << _fractionalBitsNb);
+	return tmp;
 }
 
 Fixed	&Fixed::operator++()
@@ -110,27 +122,27 @@ Fixed	Fixed::operator--(int)
 
 bool	Fixed::operator>(Fixed const &f) const
 {
-	return toFloat() > f.toFloat();
+	return _rawBits > f._rawBits;
 }
 bool	Fixed::operator<(Fixed const &f) const
 {
-	return toFloat() < f.toFloat();
+	return _rawBits < f._rawBits;
 }
 bool	Fixed::operator>=(Fixed const &f) const
 {
-	return toFloat() >= f.toFloat();
+	return _rawBits >= f._rawBits;
 }
 bool	Fixed::operator<=(Fixed const &f) const
 {
-	return toFloat() <= f.toFloat();
+	return _rawBits <= f._rawBits;
 }
 bool	Fixed::operator==(Fixed const &f) const
 {
-	return toFloat() == f.toFloat();
+	return _rawBits == f._rawBits;
 }
 bool	Fixed::operator!=(Fixed const &f) const
 {
-	return toFloat() != f.toFloat();
+	return _rawBits != f._rawBits;
 }
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &f)

@@ -11,11 +11,11 @@ private:
 	int					_rawBits;
 public:
 	Fixed(void);
-	Fixed(Fixed &src);
+	Fixed(Fixed const &src);
 	~Fixed();
 
-	void	setRawBits(int raw);
-	int		getRawBits(void);
+	void	setRawBits(int const raw);
+	int		getRawBits(void)	const;
 	
-	Fixed	&operator=(Fixed &rhs);
+	Fixed	&operator=(Fixed const &f);
 };

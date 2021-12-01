@@ -5,7 +5,7 @@ int main(void) {
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 	
 	std::cout << "a = " << a << std::endl;
-	std::cout << "++a (a + 1/256)=(a + 1 / 2^8)" << ++a << std::endl;
+	std::cout << "++a (a + 1/256) (a + 1 / 2^8) = " << ++a << std::endl;
 	
 	std::cout << "a = " << a << std::endl;
 	std::cout << "a++ = " << a++ << std::endl;

@@ -30,7 +30,7 @@ int	Fixed::toInt(void) const
 }
 float	Fixed::toFloat(void) const
 {
-	return (roundf(_rawBits) / (1 << _fractionalBitsNb));
+	return ((float)_rawBits / (1 << _fractionalBitsNb));
 }
 
 void	Fixed::setRawBits(int raw)
