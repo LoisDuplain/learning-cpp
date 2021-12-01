@@ -42,15 +42,15 @@ int		Fixed::getRawBits(void) const
 	return (_rawBits);
 }
 
-Fixed	&Fixed::operator=(Fixed const &rhs)
+Fixed	&Fixed::operator=(Fixed const &f)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	_rawBits = rhs.getRawBits();
+	_rawBits = f.getRawBits();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, Fixed const &rhs)
+std::ostream	&operator<<(std::ostream &o, Fixed const &f)
 {
-	o << rhs.toFloat();
+	o << f.toFloat();
 	return o;
 }

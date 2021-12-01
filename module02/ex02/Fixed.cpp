@@ -6,29 +6,25 @@ Fixed		&Fixed::min(Fixed &f1, Fixed &f2)
 {
 	if (f1 <= f2)
 		return f1;
-	else
-		return f2;
+	return f2;
 }
 const Fixed	&Fixed::min(Fixed const &f1, Fixed const &f2)
 {
 	if (f1 <= f2)
 		return f1;
-	else
-		return f2;
+	return f2;
 }
 Fixed		&Fixed::max(Fixed &f1, Fixed &f2)
 {
 	if (f1 >= f2)
 		return f1;
-	else
-		return f2;
+	return f2;
 }
 const Fixed	&Fixed::max(Fixed const &f1, Fixed const &f2)
 {
 	if (f1 >= f2)
 		return f1;
-	else
-		return f2;
+	return f2;
 }
 
 Fixed::Fixed(void) : _rawBits(0)
@@ -68,7 +64,6 @@ int		Fixed::getRawBits(void) const
 
 Fixed	&Fixed::operator=(Fixed const &f)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	_rawBits = f.getRawBits();
 	return (*this);
 }

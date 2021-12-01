@@ -23,7 +23,7 @@ public:
 	void	setRawBits(int raw);
 	int		getRawBits(void) const;
 	
-	Fixed	&operator=(Fixed const &rhs);
+	Fixed	&operator=(Fixed const &f);
 };
 
-std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
+std::ostream &operator<<(std::ostream &o, Fixed const &f);
