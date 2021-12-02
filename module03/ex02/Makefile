@@ -1,11 +1,13 @@
 NAME			=	clap-trap
 
 INCS			=	ClapTrap.hpp	\
-					ScavTrap.hpp
+					ScavTrap.hpp	\
+					FragTrap.hpp
 
-SRCS			=	main.cpp	\
+SRCS			=	main.cpp		\
 					ClapTrap.cpp	\
-					ScavTrap.cpp
+					ScavTrap.cpp	\
+					FragTrap.cpp
 
 COMPILED_DIR	=	./compiled_sources
 OBJS			=	$(addprefix $(COMPILED_DIR)/,$(SRCS:.cpp=.o))

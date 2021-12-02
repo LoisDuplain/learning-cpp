@@ -16,7 +16,7 @@ all: $(NAME)
 $(COMPILED_DIR):
 	mkdir -p $(COMPILED_DIR)
 
-$(COMPILED_DIR)/%.o:%.cpp
+$(COMPILED_DIR)/%.o:%.cpp	$(INCS)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 $(NAME): $(COMPILED_DIR) $(INCS) $(OBJS)
