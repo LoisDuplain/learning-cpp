@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
@@ -38,6 +39,22 @@ int	main(void)
 	std::cout << "Unknown scav: " << unknownScav << std::endl;
 
 	jimmy.takeDamage(15);
+
+	std::cout << std::endl << "- Ex 02 -----------------------------------------" << std::endl;
+
+	FragTrap	unknownFrag;
+	FragTrap	harry("Harry");
+
+	std::cout << "Unknown frag: " << unknownFrag << std::endl;
+	std::cout << "Harry frag: " << harry << std::endl;
+
+	harry.highFivesGuys();
+	harry.attack(bobby.getName());
+
+	unknownFrag = harry;
+	std::cout << "Unknown frag: " << unknownFrag << std::endl;
+
+	harry.takeDamage(15);
 
 	std::cout << std::endl << "-  End  -----------------------------------------" << std::endl;
 }
