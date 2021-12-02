@@ -33,3 +33,12 @@ void	ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap <" << _name << "> I enterred in gate keeper mode" << std::endl; 
 }
+
+ScavTrap	&ScavTrap::operator=(ScavTrap const &src)
+{
+	this->_name = src._name;
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	return (*this);
+}
