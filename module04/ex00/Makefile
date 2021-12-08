@@ -1,13 +1,17 @@
-NAME			=	clap-trap
+NAME			=	animal
 
-INCS			=	Animal.hpp	\
-					Dog.hpp	\
-					Cat.hpp
+INCS			=	Animal.hpp		\
+					Dog.hpp			\
+					Cat.hpp			\
+					WrongAnimal.hpp	\
+					WrongCat.hpp
 
 SRCS			=	main.cpp		\
-					Animal.cpp	\
-					Dog.cpp	\
-					Cat.cpp
+					Animal.cpp		\
+					Dog.cpp			\
+					Cat.cpp			\
+					WrongAnimal.cpp	\
+					WrongCat.cpp
 
 COMPILED_DIR	=	./compiled_sources
 OBJS			=	$(addprefix $(COMPILED_DIR)/,$(SRCS:.cpp=.o))

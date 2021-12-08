@@ -7,18 +7,15 @@ class Animal
 protected:
 	std::string	_type;
 
-private:
-	Animal(void);
-
 public:
+	Animal(void);
 	Animal(std::string const type);
 	Animal(Animal const &src);
-	~Animal();
+	virtual	~Animal();
 
-	void virtual	makeSound(void);
+	void virtual	makeSound(void)	const;
 
 	std::string	getType(void)	const;
-	void		setType(std::string const type);
 
 	Animal		&operator=(Animal const &o);
 };
