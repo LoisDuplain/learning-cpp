@@ -1,12 +1,13 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog"),	_brain(new Brain())
+Dog::Dog(void) : _brain(new Brain())
 {
+	_type = "Dog";
 	for (size_t i = 0; i < 100; i++)
 		_brain->_ideas[i] = "Dog idea";
 	std::cout << "Dog | " << _type << " animal created" << std::endl;
 }
-Dog::Dog(Dog const &src) : Animal("Dog"), _brain(NULL)
+Dog::Dog(Dog const &src) : _brain(NULL)
 {
 	*this = src;
 	std::cout << "Dog | " << _type << " animal created by copy" << std::endl;
