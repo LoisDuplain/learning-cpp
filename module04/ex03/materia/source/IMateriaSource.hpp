@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AMateria.hpp"
+#include "../AMateria.hpp"
 
 class AMateria;
 

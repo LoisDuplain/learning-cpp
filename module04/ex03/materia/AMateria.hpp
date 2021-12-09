@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "ICharacter.hpp"
+#include "../character/ICharacter.hpp"
 
 class ICharacter;
 

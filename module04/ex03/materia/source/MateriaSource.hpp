@@ -1,12 +1,13 @@
 #pragma once
 
-#include "AMateria.hpp"
+#include "../AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {
 private:
 	AMateria	*_inventory[4];
+
 public:
 	MateriaSource();
 	MateriaSource(MateriaSource const &src);

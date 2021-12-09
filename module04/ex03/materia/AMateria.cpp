@@ -1,6 +1,6 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(): _type("Default")
+AMateria::AMateria(): _type("Unknown")
 {
 }
 AMateria::AMateria(std::string const &type): _type(type)
@@ -16,7 +16,7 @@ AMateria::~AMateria()
 
 void	AMateria::use(ICharacter& target)
 {
-	std::cout << "* used generic materia on " << target.getName() << " *\n";
+	std::cout << "AMateria used on " << target.getName() << std::endl;
 }
 
 std::string const	&AMateria::getType() const

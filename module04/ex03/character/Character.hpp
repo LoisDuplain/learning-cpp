@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include "../materia/AMateria.hpp"
 
 class Character: public ICharacter
 {
