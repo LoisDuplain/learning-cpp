@@ -6,7 +6,7 @@
 /*   By: lduplain < lduplain@student.42lyon.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:58:20 by lwourms           #+#    #+#             */
-/*   Updated: 2021/12/16 14:41:04 by lduplain         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:43:19 by lduplain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ int const	&Bureaucrat::getGrade() const
 
 void	Bureaucrat::upGrade(int const grade)
 {
-	_grade -= grade;
-	if (_grade < maxGrade)
+	if (_grade - grade < maxGrade)
 		throw GradeTooHighException(*this);
+	_grade -= grade;
 }
 
 void	Bureaucrat::downGrade(int const grade)
 {
-	_grade += grade;
-	if (_grade > minGrade)
+	if (_grade + grade > minGrade)
 		throw GradeTooLowException(*this);
+	_grade += grade;
 }
 void	Bureaucrat::signForm(AForm &form)
 {
