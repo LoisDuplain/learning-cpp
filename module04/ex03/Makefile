@@ -1,25 +1,25 @@
-NAME			=	animal
+NAME			=	ex03
 
-INCS			=	AMateria.hpp \
-					Ice.hpp \
-					Cure.hpp \
-					ICharacter.hpp \
-					Character.hpp \
-					IMateriaSource.hpp \
-					MateriaSource.hpp
+INCS			=	materia/AMateria.hpp				\
+					materia/Ice.hpp						\
+					materia/Cure.hpp					\
+					character/ICharacter.hpp			\
+					character/Character.hpp				\
+					materia/source/IMateriaSource.hpp	\
+					materia/source/MateriaSource.hpp
 
-SRCS			=	main.cpp \
-					AMateria.cpp \
-					Ice.cpp \
-					Character.cpp \
-					Cure.cpp \
-					MateriaSource.cpp \
+SRCS			=	materia/AMateria.cpp				\
+					materia/Ice.cpp						\
+					materia/Cure.cpp					\
+					character/Character.cpp				\
+					materia/source/MateriaSource.cpp	\
+					main.cpp
 
 COMPILED_DIR	=	./compiled_sources
 OBJS			=	$(addprefix $(COMPILED_DIR)/,$(SRCS:.cpp=.o))
 
 CC				=	clang++
-FLAGS			=	-Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+FLAGS			=	-Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
@@ -27,6 +27,7 @@ $(COMPILED_DIR):
 	mkdir -p $(COMPILED_DIR)
 
 $(COMPILED_DIR)/%.o:%.cpp	$(INCS)
+	mkdir -p $(@D)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 $(NAME): $(COMPILED_DIR) $(INCS) $(OBJS)

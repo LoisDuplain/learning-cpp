@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduplain < lduplain@student.42lyon.fr>     +#+  +:+       +#+        */
+/*   By: lduplain <lduplain@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:08:56 by lwourms           #+#    #+#             */
-/*   Updated: 2021/12/09 00:54:20 by lduplain         ###   ########.fr       */
+/*   Updated: 2021/12/09 12:50:12 by lduplain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Character::Character(Character const &src)
 Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
-		if (_inventory[i])
+		if (_inventory[i] != NULL)
 		{
 			delete _inventory[i];
 			_inventory[i] = NULL;
@@ -39,21 +39,23 @@ Character::~Character()
 void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
-	{
-		if (!_inventory[i])
+		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
 			break ;
 		}
-	}
 }
 void Character::unequip(int idx)
 {
+	if (idx < 0 || idx >= 4)
+		return;
 	_inventory[idx] = NULL;
 }
 void Character::use(int idx, ICharacter &target)
 {
-	if (_inventory[idx])
+	if (idx < 0 || idx >= 4)
+		return;
+	if (_inventory[idx] != NULL)
 		_inventory[idx]->use(target);
 }
 
