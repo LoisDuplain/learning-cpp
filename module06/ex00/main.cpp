@@ -21,31 +21,22 @@ void	convert(std::string arg)
 		std::cout << "char: " << static_cast<char>(nb) << std::endl;
 
 	/* Print int value */
-	if (nb > std::numeric_limits<int>::max()
-		|| nb < std::numeric_limits<int>::min())
+	if (nb != nb
+		|| nb < std::numeric_limits<int>::min()
+		|| nb > std::numeric_limits<int>::max())
 		std::cout << "int: not an int" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(nb) << std::endl;
 
 	/* Print float value */
 	if (fmod(nb, 1) == 0)
-	{
-		if (nb < std::numeric_limits<float>::min() || nb > std::numeric_limits<float>::max())
-			std::cout << "float: not a float" << std::endl;
-		else
-			std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
-	}
+		std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
 	else
 		std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
 
 	/* Print double value */
 	if (fmod(nb, 1) == 0)
-	{
-		if (nb < std::numeric_limits<double>::min() || nb > std::numeric_limits<double>::max())
-			std::cout << "double: not a double" << std::endl;
-		else
-			std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
-	}
+		std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
 	else
 		std::cout << "double: " << static_cast<double>(nb) << std::endl;
 }
