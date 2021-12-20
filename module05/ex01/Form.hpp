@@ -43,30 +43,36 @@ class Form
 
 		Form	&operator=(Form const &src);
 
-		class GradeTooHighException: public std::exception {
+		class GradeTooHighException: public std::exception
+		{
 			private:
 				std::string	_msg;
 			public:
-				GradeTooHighException(Form const &f) {
+				GradeTooHighException(Form const &f)
+				{
 					std::stringstream s;
 					s << "grade is too high for " << f;
 					_msg = s.str();
 				}
-				virtual const char	*what() const throw() {
+				virtual const char	*what() const throw()
+				{
 					return _msg.c_str();
 				}
 				virtual	~GradeTooHighException() throw() {}
 		};
-		class GradeTooLowException: public std::exception {
+		class GradeTooLowException: public std::exception
+		{
 			private:
 				std::string	_msg;
 			public:
-				GradeTooLowException(Form const &f) {
+				GradeTooLowException(Form const &f)
+				{
 					std::stringstream s;
 					s << "grade is too low for " << f;
 					_msg = s.str();
 				}
-				virtual const char	*what() const throw() {
+				virtual const char	*what() const throw()
+				{
 					return _msg.c_str();
 				}
 				virtual ~GradeTooLowException() throw() {};
