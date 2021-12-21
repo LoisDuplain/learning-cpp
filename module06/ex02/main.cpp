@@ -1,4 +1,3 @@
-#include <__functional_base>
 #include <cstddef>
 #include <iostream>
 #include <cstdlib>
