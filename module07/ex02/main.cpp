@@ -1,4 +1,3 @@
-#include <sys/_types/_uintptr_t.h>
 #include "Array.hpp"
 
 int	main()
@@ -47,6 +46,7 @@ int	main()
 	}
 
 	std::cout << "----- Test copy -----" << std::endl;
+
 	std::cout << "Copying arrayFloat2 in arrayFloat3" << std::endl;
 	Array<float> arrayFloat3 = arrayFloat2;
 
@@ -55,24 +55,29 @@ int	main()
 	std::cout << "arrayFloat3[2] = " << arrayFloat3[2] << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "Modify tests" << std::endl;
+	std::cout << "Change value in arrayFloat3" << std::endl;
 	arrayFloat3[2] = 777.777;
+
 	std::cout << "arrayFloat3[2] = " << arrayFloat3[2] << std::endl;
 	std::cout << "arrayFloat2[2] = " << arrayFloat2[2] << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "Copy by constructor tests" << std::endl;
+	std::cout << "Copy by constructor test" << std::endl;
+
 	std::cout << "Copying arrayFloat3 in arrayFloat4" << std::endl;
 	Array<float> arrayFloat4(arrayFloat3);
+
 	std::cout << "arrayFloat4[0] = " << arrayFloat4[0] << std::endl;
 	std::cout << "arrayFloat4[1] = " << arrayFloat4[1] << std::endl;
 	std::cout << "arrayFloat4[2] = " << arrayFloat4[2] << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "Modify tests" << std::endl;
+	std::cout << "Change value in arrayFloat4" << std::endl;
 	arrayFloat4[2] = 888.777;
+
 	std::cout << "arrayFloat4[2] = " << arrayFloat4[2] << std::endl;
 	std::cout << "arrayFloat3[2] = " << arrayFloat3[2] << std::endl;
+	std::cout << std::endl;
 
 	std::cout << "Out of bounds tests" << std::endl;
 	std::cout << "Trying to access arrayFloat3[11]" << std::endl;
